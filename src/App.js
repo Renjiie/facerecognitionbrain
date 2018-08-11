@@ -76,7 +76,7 @@ class App extends Component {
   }
   onButtonSubmit= () =>{
     this.setState({imageUrl:this.state.input})
-    fetch('https://blooming-peak-23432.herokuapp.com/imageUrl',{
+    fetch('https://polar-wildwood-61957.herokuapp.com/imageUrl',{
           method: 'post',
           headers:{'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -86,7 +86,7 @@ class App extends Component {
         .then(response =>response.json())
       .then(response =>{
         if(response){
-          fetch('https://blooming-peak-23432.herokuapp.com/image',{
+          fetch('https://polar-wildwood-61957.herokuapp.com',{
           method: 'put',
           headers:{'Content-Type': 'application/json'},
           body: JSON.stringify({
