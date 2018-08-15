@@ -9,11 +9,12 @@ import Rank from './components/Rank/Rank';
 import 'tachyons';
 import Particles from 'react-particles-js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import emoji from 'emoji-dictionary';
 
 const particlesOptions = {
                 particles: {
                   number : {
-                    value: 30,
+                    value: 100,
                     density: {
                       enable: true,
                       value_area: 800
@@ -76,7 +77,7 @@ class App extends Component {
   }
   onButtonSubmit= () =>{
     this.setState({imageUrl:this.state.input})
-    fetch('https://polar-wildwood-61957.herokuapp.com/imageUrl',{
+    fetch('https://enigmatic-garden-85313.herokuapp.com/imageUrl',{
           method: 'post',
           headers:{'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -86,7 +87,7 @@ class App extends Component {
         .then(response =>response.json())
       .then(response =>{
         if(response){
-          fetch('https://polar-wildwood-61957.herokuapp.com',{
+          fetch('https://enigmatic-garden-85313.herokuapp.com/',{
           method: 'put',
           headers:{'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -119,6 +120,9 @@ class App extends Component {
       <div className="App">
        <Particles className = 'particles'
               params={particlesOptions}/>
+        <div className = "footer">
+          {`Made with  ${emoji.getUnicode("purple_heart")} by Renjith`}
+        </div>
        <Navigation isSignedIn={isSignedIn} OnRouteChange={this.OnRouteChange}/>
 
 
